@@ -1,6 +1,7 @@
 const pool = require('../src/db'); // exporta a conexão pool do db
 
 // consulta específica
+//URL: http://localhost:3001/numero do concurso desejado
 async function get(req, res) {
   try {
     const { concurso } = req.params // É REQ.PARAMS E NÃO REQ.QUERY!!!!!
