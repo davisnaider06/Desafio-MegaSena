@@ -4,7 +4,7 @@ const pool = require('../src/db'); // exporta a conexão pool do db
 
 // consulta o mais recente
 //URL: http://localhost:3001/
-router.get('/', async (req, res) => {
+router.get('/ultimo', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM megasena ORDER BY data_do_sorteio DESC LIMIT 1');
 
