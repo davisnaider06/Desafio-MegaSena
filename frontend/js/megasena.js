@@ -1,3 +1,5 @@
+let concursoAtual=null
+
 async function load(concurso) {
   let url = "http://localhost:3001";
 
@@ -12,8 +14,8 @@ async function load(concurso) {
     const response = await fetch(url);
     const result = await response.json();
 
+    concursoAtual = Number(result.concurso)
     console.log("Dados recebidos", result);
-
     preencherHTML(result);
   } catch (error) {
     alert("Falha ao receber dados");
@@ -102,3 +104,25 @@ document.getElementById("bola6").content = result.bola6;*/
 
   document.getElementById("cidade-uf").textContent = result.cidade_uf;
 }
+
+document.getElementById('search-input').addEventListener('keydown', function(event){
+  if (event.key === 'Enter'){
+    const valor = this.value.trim();
+
+    if (valor){
+      load(valor);
+    }
+  }
+});
+
+  document.getElementById('prior').addEventListener('click', function(){
+    if (concursoAtual){
+      load(concursoAtual - 1)
+    }
+  });
+
+  document.getElementById('next').addEventListener('click', function(){
+    if (concursoAtual){
+      load(concursoAtual + 1)
+    }
+  });
