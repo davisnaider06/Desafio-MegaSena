@@ -3,23 +3,28 @@ const app = express();
 const dotenv = require('dotenv');
 const cors = require('cors');
 
-dotenv.config()
+dotenv.config();
 app.use(cors());
-
-
 app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.status(200).send('API Mega-Sena funcionando!');
+});
 
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
-app.use('/', require('../routes/ultimo'));
-app.use('/:concurso', require('../routes/especifico'))
+// Importação correta das rotas
+const ultimoRouter = require('../routes/ultimo');
+const especificoRouter = require('../routes/especifico');
 
-
+// Uso correto das rotas
+app.use('/ultimo', ultimoRouter);
+app.use('/especifico', especificoRouter);
 
 const PORT = process.env.PORT || 3000;
 
 const server = app.listen(PORT, () => {
-    console.log(`🚀 Servidor rodando na porta ${PORT}`)
+    console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
 
 // Tratamento de erros na inicialização do servidor
