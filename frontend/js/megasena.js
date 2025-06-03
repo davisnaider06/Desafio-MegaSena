@@ -22,18 +22,6 @@ async function load(concurso) {
     console.error("Erro na requisição:", error);
   }
 }
-
-/*Resumindo a lógica:
-Decide se busca o mais recente ou específico.
-
-Faz a requisição.
-
-Recebe os dados.
-
-Mostra no console para conferirmos.
-
-Depois usar esses dados para preencher o HTML.*/
-
 function formatReal(valor) {
   return Number(valor).toLocaleString("pt-BR", {
     style: "currency",
