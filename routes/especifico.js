@@ -1,3 +1,7 @@
+const express = require('express');
+const router = express.Router();
+const pool = require('../src/db');
+
 router.get('/:concurso', async (req, res) => {
   const { concurso } = req.params;
 
@@ -16,3 +20,5 @@ router.get('/:concurso', async (req, res) => {
     res.status(500).send('Erro ao buscar concurso');
   }
 });
+
+module.exports = router;
