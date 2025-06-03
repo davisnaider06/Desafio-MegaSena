@@ -28,9 +28,48 @@ async function load(concurso) {
   }
 }
 
-// ... (mantenha as funções formatReal e preencherHTML exatamente como estão)
+function formatReal(valor) {
+  return Number(valor).toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+}
 
-// Event Listeners (mantenha exatamente como estão)
+
+function preencherHTML(result) {
+    let dataFormatada = new Date(result.data_do_sorteio).toLocaleDateString('pt-BR');
+    document.getElementById('title-concurso').textContent = `Concurso ${result.concurso} (${dataFormatada})`;
+
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById(`bola${i}`).textContent = result[`bola${i}`];
+    }
+
+    document.getElementById('local').textContent = `Sorteio realizado no ${result.cidade_uf}`;
+    document.getElementById('estimativa-premio').textContent = formatReal(result.estimativa_premio);
+    document.getElementById('acumulado-6-acertos').textContent = formatReal(result.acumulado_6_acertos);
+    document.getElementById('acumulado-sorteio-especial-mega-da-virada').textContent = formatReal(result.acumulado_sorteio_especial_mega_da_virada);
+
+    if (result.ganhadores_6_acertos === 0) {
+        document.getElementById('ganhadores-6-acertos').textContent = "Não houve ganhadores";
+    } else {
+        document.getElementById('ganhadores-6-acertos').textContent = `${result.ganhadores_6_acertos} aposta(s) ganhadora(s), ${formatReal(result.rateio_6_acertos)}`;
+    }
+
+    document.getElementById('ganhadores-5-acertos').textContent = `${result.ganhadores_5_acertos} apostas ganhadoras, ${formatReal(result.rateio_5_acertos)}`;
+    document.getElementById('ganhadores-4-acertos').textContent = `${result.ganhadores_4_acertos} apostas ganhadoras, ${formatReal(result.rateio_4_acertos)}`;
+
+    document.getElementById('arrecadacao-total').textContent = formatReal(result.arrecadacao_total);
+
+    if (result.ganhadores_6_acertos > 0) {
+        document.getElementById('acumulou').style.display = 'none';
+    } else {
+        document.getElementById('acumulou').style.display = 'block';
+    }
+
+    document.getElementById('cidade-uf').textContent = result.cidade_uf;
+}
+
+// Event Listeners 
 document.getElementById('search-input').addEventListener('keydown', function(event){
   if (event.key === 'Enter'){
     const valor = this.value.trim();

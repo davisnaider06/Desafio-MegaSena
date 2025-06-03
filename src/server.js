@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Rotas
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'megasena.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Importação correta das rotas
