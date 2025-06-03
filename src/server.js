@@ -16,6 +16,18 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'megasena.html'));
 });
 
+// Rota para carregar o index.html diretamente na raiz
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'megasena.css'));
+});
+
+// Rota para carregar o index.html diretamente na raiz
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'megasena.js'));
+});
+
+
+
 // Importa rotas
 const ultimoRouter = require('./routes/ultimo');
 const especificoRouter = require('./routes/especifico');
