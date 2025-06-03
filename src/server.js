@@ -2,24 +2,30 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
 
 dotenv.config();
 app.use(cors());
 app.use(express.json());
 
+// Serve arquivos estáticos da pasta 'public'
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Rota para carregar o index.html diretamente na raiz
 app.get('/', (req, res) => {
-  res.status(200).send('API Mega-Sena funcionando!');
+  res.sendFile(path.join(__dirname, 'public', 'megasena.html'));
 });
 
-app.get('/favicon.ico', (req, res) => res.status(204).end());
-
-// Importação correta das rotas
+// Importa rotas
 const ultimoRouter = require('../routes/ultimo');
 const especificoRouter = require('../routes/especifico');
 
-// Uso correto das rotas
-app.use('/ultimo', ultimoRouter);
-app.use('/especifico', especificoRouter);
+// Configura rotas da API
+app.use('../routes/ultimo', ultimoRouter);
+app.use('../routes/especifico', especificoRouter);
+
+// Favicon para evitar erro
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 const PORT = process.env.PORT || 3000;
 
@@ -34,10 +40,10 @@ server.on('error', (error) => {
     } else {
         console.error('❌ Erro ao iniciar o servidor:', error.message);
     }
-    process.exit(1); // Encerra o processo com código de erro
+    process.exit(1);
 });
 
-// Verificação adicional para garantir que o servidor está rodando
+// Verificação adicional
 server.on('listening', () => {
     console.log('✅ Servidor inicializado com sucesso!');
 });
