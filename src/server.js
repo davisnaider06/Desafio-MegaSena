@@ -6,34 +6,37 @@ const path = require('path');
 
 dotenv.config();
 
-// Configuração mais segura do CORS
-app.use(cors({
-  origin: '*',
-  methods: ['GET']
-}));
+// Configuração do CORS
+app.use(cors());
 
+// Middlewares
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Serve arquivos estáticos
+// Arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rota principal
+// Rotas
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'megasena.html'));
 });
 
-// Rotas API
+// Importação correta das rotas
 const ultimoRouter = require('./routes/ultimo');
 const especificoRouter = require('./routes/especifico');
+
+// Configuração correta das rotas
 app.use('/api/ultimo', ultimoRouter);
 app.use('/api/especifico', especificoRouter);
 
-// Rota de fallback para SPA
+// Rota de fallback
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'megasena.html'));
+  res.status(404).send('Página não encontrada');
 });
 
-const PORT = process.env.PORT || 3000;
+// Porta
+const PORT = process.env.PORT || 10000; // Use a porta 10000 como nos logs
+
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
