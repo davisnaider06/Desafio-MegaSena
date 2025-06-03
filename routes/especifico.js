@@ -1,19 +1,18 @@
-const pool = require('../src/db'); // exporta a conexão pool do db
+router.get('/:concurso', async (req, res) => {
+  const { concurso } = req.params;
 
-// consulta específica
-//URL: http://localhost:3001/numero do concurso desejado
-async function get(req, res) {
+  if (!/^\d+$/.test(concurso)) {
+    return res.status(400).send('Concurso inválido!');
+  }
+
   try {
-    const { concurso } = req.params // É REQ.PARAMS E NÃO REQ.QUERY!!!!!
-    const result = await pool.query('SELECT * FROM megasena WHERE concurso=$1',
-        [concurso]
+    const result = await pool.query(
+      'SELECT * FROM megasena WHERE concurso = $1',
+      [parseInt(concurso)]
     );
-    
     res.json(result.rows[0]);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Erro ao listar');
+    res.status(500).send('Erro ao buscar concurso');
   }
-}
-
-module.exports = get;
+});

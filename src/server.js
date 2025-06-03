@@ -9,6 +9,8 @@ app.use(cors());
 
 app.use(express.json());
 
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 app.use('/', require('../routes/ultimo'));
 app.use('/:concurso', require('../routes/especifico'))
 
