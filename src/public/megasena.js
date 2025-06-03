@@ -15,8 +15,10 @@ async function load(concurso) {
     const response = await fetch(url);
     
     if (!response.ok) {
-      throw new Error(`Erro HTTP: ${response.status}`);
-    }
+  const text = await response.text();
+  console.error('Erro HTTP:', response.status, text);
+  throw new Error(`Erro HTTP: ${response.status}`);
+}
     
     const result = await response.json();
     concursoAtual = Number(result.concurso);
