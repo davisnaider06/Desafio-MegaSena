@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router(); //permite agrupar rotas relacionadas
-const pool = require('../src/db'); // exporta a conexão pool do db
+const pool = require('../db'); // exporta a conexão pool do db
 
 // consulta o mais recente
 //URL: http://localhost:3001/

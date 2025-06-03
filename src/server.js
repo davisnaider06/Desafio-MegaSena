@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
 });
 
 // Importa rotas
-const ultimoRouter = require('../routes/ultimo');
-const especificoRouter = require('../routes/especifico');
+const ultimoRouter = require('./routes/ultimo');
+const especificoRouter = require('./routes/especifico');
 
 // Configura rotas da API
 app.use('../routes/ultimo', ultimoRouter);
