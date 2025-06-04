@@ -1,80 +1,115 @@
-# Desafio Mega Sena
+# 🎯 Desafio Mega-Sena
 
-Este é um projeto desenvolvido por **Davi Snaider** como parte de um desafio acadêmico, com o objetivo de criar do zero uma aplicação completa, composta por:
+Sistema completo de consulta, inserção e navegação de concursos da Mega-Sena, com front-end, back-end e banco de dados integrados!
 
-✅ Modelagem e criação de banco de dados
-✅ Desenvolvimento de servidor
-✅ Implementação de rotas para manipulação dos dados
+## 🚀 Acesse o sistema:
+
+🔗 **[Site Online](https://megasena-backend.onrender.com/)**  
+🔗 **[Repositório no GitHub](https://github.com/davisnaider06/desafio-MegaSena.git)**
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Node.js**
-* **Express**
-* **PostgreSQL**
+- **Node.js** e **Express** (back-end)
+- **PostgreSQL** (banco de dados via Supabase)
+- **JavaScript Vanilla** (front-end)
+- **HTML5** e **CSS3**
+- **Render** (deploy do back-end)
+- **Supabase** (banco de dados na nuvem)
 
 ---
 
-## 🎯 Objetivo
+## 📦 Funcionalidades
 
-O objetivo principal deste projeto foi criar um sistema completo e funcional que simula um banco de dados com resultados de concursos da Mega Sena. Todo o processo foi realizado do zero, incluindo:
-
-* Estruturação do banco de dados (modelagem, criação de tabelas e inserção de dados).
-* Desenvolvimento de servidor com **Node.js** e **Express**.
-* Implementação de rotas para consultar, listar e manipular as informações armazenadas.
-
----
-
-## 💡 Funcionalidades
-
-* ✅ **Consulta de concursos** com base em critérios definidos.
-* ✅ **Listagem completa** dos resultados armazenados no banco de dados.
-* ✅ Estrutura modular e clara, seguindo boas práticas de desenvolvimento back-end.
+✅ Consultar o último concurso  
+✅ Buscar um concurso específico  
+✅ Navegar entre concursos (anterior/próximo)  
+✅ Inserir novos concursos (rota POST)  
+✅ CRUD completo (em desenvolvimento)  
 
 ---
 
-## ⚙️ Como Executar Localmente
+## 🏗️ Estrutura do Projeto
 
-1. **Clone o repositório**:
+/src
+/routes
+- ultimo.js
+- especifico.js
+- adicionar.js
 
-   ```bash
-   git clone https://github.com/davisnaider06/Desafio-MegaSena.git
-   ```
+server.js
 
-2. **Instale as dependências**:
+db.js
+/public
+megasena.html
+megasena.css
+megasena.js
 
-   ```bash
-   npm install
-   ```
-
-3. **Configure o banco de dados**:
-
-   * Crie um banco de dados PostgreSQL.
-   * Importe o script SQL fornecido no projeto para criar as tabelas e inserir os dados.
-   * Ajuste as variáveis de ambiente (ou o arquivo de configuração) com as credenciais corretas.
-
-4. **Inicie o servidor**:
-
-   ```bash
-   npm start
-   ```
-
-5. **Consuma as rotas**:
-
-   * Use **Postman**, **Insomnia** ou outro cliente HTTP para fazer as requisições nas rotas disponíveis.
 
 ---
 
-## 📄 Licença
+## 🔗 Rotas da API
 
-Este projeto foi desenvolvido para fins educacionais como parte das atividades da faculdade.
+| Método | Rota                        | Descrição                               |
+|-------- |---------------------------  |---------------------------------------- |
+| GET     | `/api/ultimo`               | Retorna o último concurso               |
+| GET     | `/api/especifico/:concurso` | Retorna dados de um concurso específico |
+| POST    | `/api/adicionar`            | Adiciona um novo concurso               |
+
+---
+
+## 🚀 Como executar localmente
+
+1. Clone o repositório:  
+   `git clone https://github.com/davisnaider06/desafio-MegaSena.git`
+
+2. Instale as dependências:  
+   `npm install`
+
+3. Configure o `.env` com a `DATABASE_URL`.
+
+4. Execute o servidor:  
+   `npm run dev`
+
+5. Acesse:  
+   `http://localhost:3000`
 
 ---
 
-## 🙌 Contato
+## 🏆 Deploy
 
-* 📧 Email: [davisnaider06@gmail.com](mailto:davisnaider06@gmail.com)
-* 💼 LinkedIn: [Davi Snaider](https://www.linkedin.com/in/davi-s-a7a99432b/)
+✅ **Back-end** hospedado via **Render**  
+✅ **Banco de dados** PostgreSQL via **Supabase**  
+✅ **Front-end** servido junto do back-end (Express Static)
 
 ---
+
+## 🙋‍♂️ Autor
+
+**Davi Snaider**  
+[GitHub](https://github.com/davisnaider06)  
+[LinkedIn](https://www.linkedin.com/in/...)
+
+---
+
+## 💡 Motivação
+
+Projeto acadêmico de integração front-end, back-end e banco de dados.  
+Desenvolvido para aplicar conhecimentos de:
+
+✅ Requisições HTTP  
+✅ Deploy de aplicações Node.js  
+✅ Banco de dados relacional na nuvem  
+✅ Manipulação de dados com JavaScript
+
+---
+
+## 📸 Screenshot
+
+---![Captura de tela 2025-06-03 172152](https://github.com/user-attachments/assets/346aab8b-50e0-4131-a83a-a88b27c180de)
+
+
+## 🤝 Contribuições
+
+Sinta-se à vontade para sugerir melhorias ou relatar problemas via Issues ou Pull Requests!
