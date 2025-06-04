@@ -87,7 +87,7 @@ megasena.js
 
 ## 🙋‍♂️ Autor
 
-**Davis Naider**  
+**Davi Snaider**  
 [GitHub](https://github.com/davisnaider06)  
 [LinkedIn](https://www.linkedin.com/in/...)
 
