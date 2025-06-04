@@ -1,8 +1,3 @@
-Perfeito! Aqui está o **README.md** prontinho para você **copiar e colar**:
-
----
-
-```markdown
 # 🎯 Desafio Mega-Sena
 
 Sistema completo de consulta, inserção e navegação de concursos da Mega-Sena, com front-end, back-end e banco de dados integrados!
@@ -37,22 +32,20 @@ Sistema completo de consulta, inserção e navegação de concursos da Mega-Sena
 
 ## 🏗️ Estrutura do Projeto
 
-```
-
 /src
 /routes
-\- ultimo.js
-\- especifico.js
-\- adicionar.js
+- ultimo.js
+- especifico.js
+- adicionar.js
 
-* server.js
-* db.js
-  /public
-* megasena.html
-* megasena.css
-* megasena.js
+server.js
 
-```
+db.js
+/public
+megasena.html
+megasena.css
+megasena.js
+
 
 ---
 
@@ -114,12 +107,9 @@ Desenvolvido para aplicar conhecimentos de:
 
 ## 📸 Screenshot
 
-![Mega-Sena Screenshot](https://megasena-backend.onrender.com)  
-(*Adicione um print da tela aqui depois.*)
+---![Captura de tela 2025-06-03 172152](https://github.com/user-attachments/assets/346aab8b-50e0-4131-a83a-a88b27c180de)
 
----
 
 ## 🤝 Contribuições
 
 Sinta-se à vontade para sugerir melhorias ou relatar problemas via Issues ou Pull Requests!
-```
