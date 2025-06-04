@@ -4,9 +4,9 @@ async function load(concurso) {
   let url;
   
   if (concurso) {
-    url = `/api/especifico/${concurso}`;
+    url = `/api/${concurso}`;
   } else {
-    url = '/api/ultimo';
+    url = '/api';
   }
 
   console.log("Buscando:", url);

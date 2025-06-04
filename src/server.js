@@ -33,7 +33,7 @@ const deletarRouter = require('./routes/deletar')
 // app.use('/api/adicionar', adicionarRouter);
 // app.use('/api', deletarRouter);
 
-app.use('/', especificoRouter)
+app.use('/api', especificoRouter)
 
 // Rota de fallback
 app.get('*', (req, res) => {
