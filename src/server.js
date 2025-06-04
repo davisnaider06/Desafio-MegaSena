@@ -28,10 +28,12 @@ const adicionarRouter = require('./routes/adicionar');
 const deletarRouter = require('./routes/deletar')
 
 // Configuração correta das rotas
-app.use('/api/ultimo', ultimoRouter);
-app.use('/api/especifico', especificoRouter);
-app.use('/api/adicionar', adicionarRouter);
-app.use('/api/deletar', deletarRouter);
+// app.use('/api/ultimo', ultimoRouter);
+// app.use('/api/especifico', especificoRouter);
+// app.use('/api/adicionar', adicionarRouter);
+// app.use('/api', deletarRouter);
+
+app.use('/', especificoRouter)
 
 // Rota de fallback
 app.get('*', (req, res) => {
