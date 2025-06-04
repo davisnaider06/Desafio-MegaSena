@@ -24,10 +24,12 @@ app.get('/', (req, res) => {
 // Importação correta das rotas
 const ultimoRouter = require('./routes/ultimo');
 const especificoRouter = require('./routes/especifico');
+const adicionarRouter = require('./routes/adicionar');
 
 // Configuração correta das rotas
 app.use('/api/ultimo', ultimoRouter);
 app.use('/api/especifico', especificoRouter);
+app.use('/api/adicionar', adicionarRouter);
 
 // Rota de fallback
 app.get('*', (req, res) => {
