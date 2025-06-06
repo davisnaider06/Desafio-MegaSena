@@ -32,7 +32,7 @@ app.get('*', (req, res) => {
 });
 
 // Porta
-const PORT = process.env.PORT || 10000; // Use a porta 10000 como nos logs
+const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
